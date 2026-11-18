@@ -1,0 +1,26 @@
+{
+  "name": "calendario-de-adviento",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "photos": "node --env-file-if-exists=.env.local scripts/photos.mjs",
+    "qr": "node scripts/qr.mjs",
+    "guard": "node scripts/guard.mjs"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  },
+  "overrides": {
+    "@vercel/cli-config": {
+      "zod": "^4.6.6"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {"api/calendar.js": {"includeFiles":"content/calendar.example.json"}},
+  "rewrites": [
+    {"source":"/","destination":"/api/calendar"},
+    {"source":"/calendario","destination":"/api/calendar?r=calendar"},
+    {"source":"/acceso","destination":"/api/calendar?r=login"},
+    {"source":"/salir","destination":"/api/calendar?r=logout"},
+    {"source":"/contenido/:day","destination":"/api/calendar?r=day&day=:day"},
+    {"source":"/foto/:day","destination":"/api/calendar?r=photo&day=:day"}
+  ],
+  "headers":[{"source":"/(.*)","headers":[{"key":"X-Robots-Tag","value":"noindex, nofollow, noarchive"},{"key":"X-Content-Type-Options","value":"nosniff"}]}]
+}

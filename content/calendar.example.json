@@ -1,0 +1,151 @@
+{
+  "year": 2026,
+  "timezone": "Europe/Rome",
+  "language": "es",
+  "days": [
+    {
+      "day": 1,
+      "title": "Ya estamos en diciembre",
+      "message": "Me gusta cuando me buscas la mano sin mirar. Empiezo por ahí.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 2,
+      "title": "El café",
+      "message": "Si mañana me levanto antes, te dejo el café hecho. Si te levantas tú, haz como que no has leído esto.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 3,
+      "title": "En el súper",
+      "message": "Me haces reír hasta en la cola del súper. Tiene mérito, sobre todo un sábado.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 4,
+      "title": "La manta",
+      "message": "Te he guardado sitio en el sofá. La manta, como siempre, la negociaremos.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 5,
+      "title": "El atajo",
+      "message": "Hoy me he acordado de tu cara cuando dije «sé un atajo». Aún te debo esos veinte minutos.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 6,
+      "title": "Un paseo",
+      "message": "Hoy el plan lo eliges tú. Yo pongo el chocolate caliente.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 7,
+      "title": "Un rato más",
+      "message": "Me gustan esos «cinco minutos más» que sabemos perfectamente que serán veinte.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 8,
+      "title": "La última patata",
+      "message": "Todavía me acuerdo de que me dejaste la última patata. Eso en nuestra casa cuenta.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 9,
+      "title": "La ventana",
+      "message": "Si llueve esta tarde, ¿nos quedamos un rato escuchándola?",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 10,
+      "title": "Tu mensaje",
+      "message": "Me sigue haciendo ilusión ver tu nombre en el móvil, hasta cuando solo pone «compra pan».",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 11,
+      "title": "Sin prisa",
+      "message": "Me gustaría cenar contigo sin mirar la hora. Algo fácil, y luego recogemos mañana.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 12,
+      "title": "Una canción",
+      "message": "Hoy eliges tú la primera canción. Pienso cantar aunque me sepa solo el estribillo.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 13,
+      "title": "Lo que no dije",
+      "message": "Ayer no te lo dije: me sentó muy bien que me preguntaras cómo estaba y te quedaras a escuchar.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 14,
+      "title": "De vuelta",
+      "message": "Lo primero que me apetece al llegar a casa es contarte esa tontería que me ha pasado.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 15,
+      "title": "La bufanda",
+      "message": "Puedes quedarte mi bufanda. Llevo días viendo que te queda mejor.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 16,
+      "title": "Aquella foto",
+      "message": "Me gustan más las fotos en las que salimos riéndonos antes de que dé tiempo a posar.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 17,
+      "title": "La lista",
+      "message": "Tenemos una lista de pelis y acabamos viendo la misma. Esta noche me parece un plan estupendo.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 18,
+      "title": "Nuestra mesa",
+      "message": "¿Hacemos una cena de picoteo? Yo corto el queso y tú me dices cuándo parar.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 19,
+      "title": "El frío",
+      "message": "Dame esa mano fría. La otra también, anda.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 20,
+      "title": "Las luces",
+      "message": "Me gusta salir contigo a ver las luces y oírte elegir cuál pondrías en casa.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 21,
+      "title": "Dos tazas",
+      "message": "He sacado las dos tazas grandes. Vente cuando acabes, que el agua ya está.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 22,
+      "title": "Me quedo aquí",
+      "message": "No hay que hacer nada especial hoy. Si te apetece, me siento contigo un rato.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 23,
+      "title": "Casi",
+      "message": "Mañana abrimos la última. Hoy quería decirte que me ha gustado dejarte estas notas.",
+      "alt": "Una cabaña entre montañas nevadas"
+    },
+    {
+      "day": 24,
+      "title": "Feliz Navidad",
+      "message": "Antes de que empiece el jaleo, ven un segundo. Gracias por todos esos ratos que parecen pequeños hasta que un día te faltan. Te quiero. Feliz Navidad, cariño.",
+      "alt": "Una cabaña entre montañas nevadas"
+    }
+  ]
+}

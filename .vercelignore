@@ -1,0 +1,15 @@
+private/
+content/calendar.private.json
+**/*.private.*
+.env*
+.git/
+node_modules/
+dist/
+**/*.local.*
+**/*.secret
+**/*.secret.*
+**/*.pem
+**/*.key
+**/*.p12
+coverage/
+out/
