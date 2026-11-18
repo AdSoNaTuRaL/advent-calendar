@@ -7,7 +7,7 @@ import { door, grid, page, welcome, escape } from './view.mjs';
 
 const headers = {
   'Cache-Control':'private, no-store', 'X-Robots-Tag':'noindex, nofollow, noarchive',
-  'X-Content-Type-Options':'nosniff', 'Referrer-Policy':'no-referrer',
+  'X-Content-Type-Options':'nosniff', 'Referrer-Policy':'same-origin',
   'Content-Security-Policy':"default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
 };
 const demo = validate(sample);
@@ -54,8 +54,8 @@ export function createHandler({local = false, env = process.env, clock = Date.no
       if (path === '/acceso' || path === '/salir') {
         if (request.method !== 'POST') return error(t.missing, 405);
         const origin = request.headers.get('origin');
-        if (!origin || new URL(origin).host !== url.host ||
-            new URL(origin).protocol !== (secure ? 'https:' : url.protocol)) return error(t.missing, 403);
+        const expectedOrigin = secure ? 'https://' + url.host : url.origin;
+        if (origin !== expectedOrigin) return error(t.missing, 403);
         if (!privateMode) return redirect('/calendario');
         if (path === '/salir') return redirect('/', session(env, now, secure, true));
         const ip = local ? 'local' : (request.headers.get('x-vercel-forwarded-for') || 'unknown').split(',')[0].trim();

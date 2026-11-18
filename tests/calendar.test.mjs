@@ -51,7 +51,11 @@ test('autorización, cookies, mensajes y fotos privadas', async () => {
     method:'POST', headers:{origin:url, 'x-vercel-forwarded-for':'192.0.2.10', ...options},
     body:new URLSearchParams({code:env.ACCESS_CODE})
   });
-  assert.equal((await handle(login({origin:'https://other.test'}))).status, 403);
+  const home = await handle(request('/'));
+  assert.equal(home.headers.get('referrer-policy'), 'same-origin');
+  for (const origin of ['null', 'https://other.test', 'http://example.test']) {
+    assert.equal((await handle(login({origin}))).status, 403);
+  }
   const response = await handle(login());
   assert.equal(response.status, 303);
   const value = response.headers.get('set-cookie');
