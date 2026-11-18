@@ -34,6 +34,8 @@ npm run photos -- import "/ruta/a/las/fotos-descargadas"
 
 El comando copia los originales a `private/photos/originals/`. Abre `private/photos/order.json` y deja exactamente 24 nombres distintos, uno por día en orden. El primer nombre corresponde al 1 de diciembre. Si vuelves a importar, se conservan los archivos que ya tienen el mismo nombre y el orden que hayas escrito.
 
+Para editar títulos y mensajes o mover una foto a otro día desde un formulario, ejecuta `npm run editor` y abre http://127.0.0.1:3010. El editor escucha solo en tu equipo. Al guardar, actualiza el orden y genera la vista de revisión sin subir archivos. Puedes cambiar el puerto con `EDITOR_PORT=3011 npm run editor`.
+
 ```sh
 npm run photos -- prepare
 ```
@@ -61,6 +63,7 @@ La aprobación corresponde al contenido y a las imágenes preparadas de esa revi
 | `BLOB_READ_WRITE_TOKEN` | Credencial del almacén privado, solo para servidor y subida local. |
 | `BLOB_CALENDAR_PATH` | Ruta opcional del manifiesto. Por defecto, `calendar/manifest.json`. Usa la misma ruta en local y Vercel. |
 | `CALENDAR_LANGUAGE` | Idioma de la pantalla de acceso antes de abrir el manifiesto privado. El resto usa `language` del manifiesto. |
+| `CALENDAR_UNLOCK_POLICY` | `archive` mantiene las puertas abiertas. Con `today` solo está disponible la puerta del día, del 1 al 24. |
 | `LOCAL_PRIVATE_FILES` | Con `1`, el servidor de desarrollo lee los archivos locales en modo privado. |
 | `LOCAL_PREVIEW_AT` | Fecha ISO con desfase, solo para el servidor de desarrollo. |
 
@@ -88,7 +91,7 @@ Imprime o envía `private/qr.png`. El QR lleva a la pantalla de acceso. Conserva
 
 ## Fechas y pruebas
 
-El servidor abre cada puerta al comenzar su fecha local en la zona IANA configurada. En Roma, el día 1 de diciembre de 2026 abre a las 00:00 CET, a las 23:00 UTC del 30 de noviembre. Las puertas abiertas siguen disponibles incluso después de Navidad. El navegador muestra la cuenta atrás y el servidor comprueba la fecha al solicitar cada mensaje o foto.
+El servidor abre cada puerta al comenzar su fecha local en la zona IANA configurada. En Roma, el día 1 de diciembre de 2026 abre a las 00:00 CET, a las 23:00 UTC del 30 de noviembre. Con la opción predeterminada `archive`, las puertas abiertas siguen disponibles después de Navidad. Con `today`, cada puerta y su foto se cierran al comenzar el día siguiente. Para comprobar este modo con distintas fechas, inicia el servidor local con `CALENDAR_UNLOCK_POLICY=today` y cambia `LOCAL_PREVIEW_AT`. El navegador muestra la cuenta atrás y el servidor comprueba la fecha al solicitar cada mensaje o foto.
 
 ```sh
 npm test

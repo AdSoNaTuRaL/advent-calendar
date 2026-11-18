@@ -1,7 +1,7 @@
 import sample from '../content/calendar.example.json' with { type: 'json' };
 import { get } from '@vercel/blob';
 import { attempt, authorized, matches, session } from './auth.mjs';
-import { manifestPath, unlockAt, validate } from './calendar.mjs';
+import { doorState, manifestPath, validate } from './calendar.mjs';
 import { translate } from './i18n.mjs';
 import { door, grid, page, welcome, escape } from './view.mjs';
 
@@ -80,6 +80,7 @@ export function createHandler({local = false, env = process.env, clock = Date.no
           calendar = validate(await new Response(result.stream).json());
         }
       }
+      calendar = {...calendar, todayOnly:env.CALENDAR_UNLOCK_POLICY === 'today'};
       lang = calendar.language;
       t = translate(lang);
       if (path === '/') return html(t, lang, welcome(t, calendar, now, !privateMode));
@@ -88,7 +89,7 @@ export function createHandler({local = false, env = process.env, clock = Date.no
       if (!match) return error(t.missing, 404);
       const day = Number(match[2]);
       if (match[1] === 'contenido') return html(t, lang, door(t, calendar, day, now, !privateMode));
-      if (!privateMode || now < unlockAt(calendar, day)) return error(t.missing, 404);
+      if (!privateMode || doorState(calendar, day, now) !== 'open') return error(t.missing, 404);
       const photoHeaders = {...headers,'Content-Type':'image/webp'};
       if (localFiles) return new Response(await localContent.photo(day), {headers:photoHeaders});
       const key = calendar.days[day - 1].photo;

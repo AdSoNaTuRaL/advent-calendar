@@ -5,6 +5,8 @@ export const dictionaries = {
     invalid:'Ese código no coincide. ¿Lo pruebas otra vez?', limited:'Has hecho demasiados intentos. Vuelve en unos minutos.',
     calendar:'Tu calendario de Adviento', back:'Volver al calendario', day:'Día', locked:'Cerrado',
     opens:'Esta puerta se abre el', next:'La próxima puerta se abre en', all:'Ya puedes abrir las 24 puertas.',
+    todayOnly:'Solo puedes abrir la puerta de hoy. A medianoche se abre la siguiente.',
+    past:'Esta puerta solo se podía abrir ese día.', ended:'El calendario ha terminado. ¡Feliz Navidad!',
     units:['d','h','min','s'], special:'Día especial', finale:'Navidad', missing:'No encontramos esa puerta.',
     error:'Ahora mismo no se puede abrir el calendario. Inténtalo en un rato.', photo:'Imagen del día',
     demo:'Calendario de muestra', soon:'Cada puerta se abre a medianoche.', welcome:'Adviento'

@@ -26,5 +26,11 @@ export function unlockAt(calendar, day) {
   return high;
 }
 
+export function doorState(calendar, day, now) {
+  if (now < unlockAt(calendar, day)) return 'future';
+  if (calendar.todayOnly && now >= unlockAt(calendar, day + 1)) return 'past';
+  return 'open';
+}
+
 export const specialDays = new Set([6, 12, 18, 24]);
 export const manifestPath = () => process.env.BLOB_CALENDAR_PATH || 'calendar/manifest.json';

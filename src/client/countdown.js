@@ -13,3 +13,12 @@ if (clock) {
   render();
   setInterval(render, 1000);
 }
+
+const refresh = document.querySelector('[data-refresh-after]');
+if (refresh) {
+  const delay = Number(refresh.dataset.refreshAfter);
+  setTimeout(() => location.reload(), delay);
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) location.reload();
+  });
+}

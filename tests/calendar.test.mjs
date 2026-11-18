@@ -97,3 +97,34 @@ test('la entrada de Vercel sirve la demo sin credenciales ni archivos privados',
     headers:{origin:url},body:new URLSearchParams({code:'fictional'})}));
   assert.equal(login.status, 303);
 });
+
+test('en modo diario solo se pueden leer y descargar los contenidos del día en Roma', async () => {
+  let now = midnight(1) - 1;
+  const calendar = structuredClone(sample);
+  for (const entry of calendar.days) entry.photo = 'calendar/photos/' + 'b'.repeat(64) + '/' + entry.day + '.webp';
+  const policyEnv = {...env, CALENDAR_UNLOCK_POLICY:'today'};
+  const handle = createHandler({env:policyEnv, clock:() => now, blob:async key => ({
+    statusCode:200, stream:new Response(key.endsWith('.webp') ? 'fixture' : JSON.stringify(calendar)).body
+  })});
+  const get = path => handle(request(path, {headers:{cookie:session(policyEnv, now, true).split(';')[0]}}));
+  const count = async () => ((await (await get('/calendario')).text()).match(/class="door [^"]*\bopen"/g) || []).length;
+  assert.equal(await count(), 0);
+  for (const day of [1, 2, 12, 24]) {
+    now = midnight(day);
+    assert.equal(await count(), 1);
+    assert.match(await (await get('/contenido/' + day)).text(), /class="message"/);
+    assert.equal((await get('/foto/' + day)).status, 200);
+    if (day > 1) {
+      assert.match(await (await get('/contenido/' + (day - 1))).text(), /solo se podía abrir ese día/);
+      assert.equal((await get('/foto/' + (day - 1))).status, 404);
+    }
+    if (day < 24) {
+      assert.match(await (await get('/contenido/' + (day + 1))).text(), /Esta puerta se abre el/);
+      assert.equal((await get('/foto/' + (day + 1))).status, 404);
+    }
+  }
+  now = midnight(25);
+  assert.equal(await count(), 0);
+  assert.equal((await get('/foto/24')).status, 404);
+  assert.match(await (await get('/calendario')).text(), /El calendario ha terminado/);
+});
